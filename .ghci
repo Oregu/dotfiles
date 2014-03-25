@@ -2,3 +2,8 @@
 :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
 :def hlint const . return $ ":! hlint \"src\""
 :def pl \s -> return $ ":! pointfree \"" ++ s ++ "\""
+
+{-
+:m +Data.Ratio
+let sum _ = -1%12
+-}
