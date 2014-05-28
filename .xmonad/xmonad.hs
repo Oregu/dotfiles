@@ -3,14 +3,17 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.SetWMName
 
+import XMonad.Layout.NoBorders
 import XMonad.Util.EZConfig
+
 import Graphics.X11.ExtraTypes.XF86
+import Data.Ratio ((%))
 
 main :: IO ()
 main = xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook'
         , logHook    = logHook'
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook = layoutHook'
         , startupHook = setWMName "LG3D" -- For Swing
         , normalBorderColor  = normalBorderColor'
         , focusedBorderColor = focusedBorderColor'
@@ -23,6 +26,13 @@ manageHook' = manageHook defaultConfig
 logHook' :: X ()
 logHook' = fadeInactiveLogHook fadeAmount
     where fadeAmount = 0.8
+
+layoutHook' = avoidStruts $ smartBorders $ tiled ||| Mirror tiled ||| Full
+    where tiled   = Tall nmaster delta ratio
+          nmaster = 1     -- The default number of windows in the master pane
+          ratio   = 2%3   -- Default proportion of screen occupied by master pane
+          delta   = 5%100 -- Percent of screen to increment by when resizing panes
+
 
 keys' :: [((KeyMask, KeySym), X ())]
 keys' =
