@@ -11,13 +11,14 @@ import Data.Ratio ((%))
 
 main :: IO ()
 main = xmonad $ defaultConfig
-        { manageHook = manageDocks <+> manageHook'
-        , logHook    = logHook'
-        , layoutHook = layoutHook'
+        { manageHook  = manageDocks <+> manageHook'
+        , logHook     = logHook'
+        , layoutHook  = layoutHook'
         , startupHook = setWMName "LG3D" -- For Swing
         , normalBorderColor  = normalBorderColor'
         , focusedBorderColor = focusedBorderColor'
-        , modMask    = mod4Mask          -- Mod as the Windows key
+        , modMask     = mod4Mask         -- Mod as the Windows key
+        , terminal    = "xterm"
         } `additionalKeys` keys'
 
 manageHook' :: ManageHook
@@ -32,7 +33,6 @@ layoutHook' = avoidStruts $ smartBorders $ tiled ||| Mirror tiled ||| Full
           nmaster = 1     -- The default number of windows in the master pane
           ratio   = 2%3   -- Default proportion of screen occupied by master pane
           delta   = 5%100 -- Percent of screen to increment by when resizing panes
-
 
 keys' :: [((KeyMask, KeySym), X ())]
 keys' =
