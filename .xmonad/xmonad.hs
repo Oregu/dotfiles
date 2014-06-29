@@ -51,5 +51,3 @@ normalBorderColor' = "gray"
 
 focusedBorderColor' :: String
 focusedBorderColor' = "purple"
-
---test
