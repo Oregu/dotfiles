@@ -3,3 +3,5 @@
 .#*
 .lein-*
 .nrepl*
+target/
+*.iml
