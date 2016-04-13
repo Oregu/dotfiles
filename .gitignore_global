@@ -5,3 +5,5 @@
 .nrepl*
 target/
 *.iml
+.idea/
+out/

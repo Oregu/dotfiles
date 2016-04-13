@@ -41,7 +41,7 @@ keys' =
     , ((0, xK_Print), spawn "scrot -e 'mv $f ~/Pictures'")
     , ((0, xF86XK_MonBrightnessDown),  spawn "xbacklight -20")
     , ((0, xF86XK_MonBrightnessUp),  spawn "xbacklight +20")
-    , ((0, xF86XK_AudioMute),        spawn "amixer set Master toggle && amixer set Headphone toggle")
+    , ((0, xF86XK_AudioMute),        spawn "amixer set Master toggle && amixer set Headphone toggle && amixer set Speaker toggle")
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2+")
     , ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master on && amixer set Headphone on && amixer set Master 2-")
     ]
